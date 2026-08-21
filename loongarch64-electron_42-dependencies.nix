@@ -229,7 +229,7 @@ let
       name = sanitizeJobName node.name;
       shortName = builtins.substring 0 (lib.min 80 (builtins.stringLength name)) name;
     in
-    "dep_${hash}_${shortName}_${sanitizeJobName node.outputName}";
+    "${hash}_${shortName}_${sanitizeJobName node.outputName}";
 
   # hydra-eval-jobs only needs this compact derivation interface.  Recreating
   # it here lets each selected output from the recursive inputDrvs graph become
